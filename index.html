@@ -8,12 +8,14 @@
 <body>
 <x-dc>
 <helmet>
+<script type="text/javascript" src="https://app.viral-loops.com/widgetsV2/core/loader.js" data-campaign-id="0LTlgYLoP5quOwRfdBSRkNd0hwE" id="viral-loops-loader"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,800;1,14..32,900&amp;display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  html{scroll-behavior:smooth}
   body{background:#070707;font-family:'Inter',sans-serif}
   ::selection{background:#E05A3A;color:#0A0A0A}
   @keyframes sparkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
@@ -25,6 +27,7 @@
     .hero-grid h1,.focus-grid h2{text-align:center}
     .hero-grid p,.focus-grid p{margin-left:auto;margin-right:auto}
     .focus-grid{text-align:center}
+    .focus-grid > div:first-of-type{padding-left:0 !important}
     .focus-phone{order:2}
   }
   @media (max-width:380px){
@@ -40,57 +43,68 @@
   <div style="position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 220px 60px rgba(0,0,0,.9)"></div>
 
   <!-- ============ TOP BAR ============ -->
-  <header style="position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,5vw,64px);max-width:1400px;margin:0 auto">
-    <img src="./spark_logo-mqkrg36u.png" alt="Spark" style="height: 48px; display: block; width: 114px"><div style="display:flex;align-items:center;gap:8px">
-      
-      
-    </div>
-    <a href="#" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:13.5px;font-weight:700;color:#0A0A0A;background:#fff;padding:10px 18px;border-radius:100px;box-shadow:0 0 24px rgba(224,90,58,.25)">
-      <svg width="14" height="15" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M17.6 9.48l1.84-3.18a.4.4 0 00-.7-.4l-1.87 3.23a11.4 11.4 0 00-8.74 0L6.27 5.9a.4.4 0 10-.7.4L7.4 9.48A10.8 10.8 0 002 18h20a10.8 10.8 0 00-5.4-8.52zM7.5 15.25a1 1 0 110-2 1 1 0 010 2zm9 0a1 1 0 110-2 1 1 0 010 2z"></path></svg>
-      Disponible sur Android
-    </a>
-  </header>
+  
 
   <!-- ============ HERO ============ -->
-  <section class="hero-grid" style="position:relative;z-index:10;max-width:1400px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(20px,5vw,64px) clamp(60px,8vw,110px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center">
-
-    <!-- hero ambient glow -->
-    <div style="{{ heroGlowStyle }}"></div>
-
-    <div style="position:relative;z-index:3">
-      
-      <h1 style="font-size: clamp(46px,7.4vw,90px); line-height: 0.99; font-weight: 900; font-style: italic; letter-spacing: -.035em; text-wrap: balance; width: 627px">
-        Le scroll infinis<br>s'arrête&nbsp;<span style="color: rgb(224, 90, 58); text-shadow: rgba(224, 90, 58, 0.55) 0px 0px 48px;">ici.</span>
-      </h1>
-      <p style="margin-top:28px;max-width:430px;font-size:clamp(15.5px,1.6vw,18px);line-height:1.6;color:#A8A2A0;font-weight:500">Avec Spark tu ne te fais plus tunnel par les réseaux. Tu reprends le contrôle de ton attention.</p>
-      <div style="margin-top:38px;display:flex;align-items:center;gap:22px;flex-wrap:wrap">
-        <a href="#" style="display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-size:16px;font-weight:800;color:#0A0A0A;background:linear-gradient(180deg,#fff,#ECE7E4);padding:17px 30px;border-radius:100px;box-shadow:0 14px 40px -8px rgba(224,90,58,.5),0 0 0 1px rgba(255,255,255,.1)">
-          <svg width="18" height="19" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M17.6 9.48l1.84-3.18a.4.4 0 00-.7-.4l-1.87 3.23a11.4 11.4 0 00-8.74 0L6.27 5.9a.4.4 0 10-.7.4L7.4 9.48A10.8 10.8 0 002 18h20a10.8 10.8 0 00-5.4-8.52zM7.5 15.25a1 1 0 110-2 1 1 0 010 2zm9 0a1 1 0 110-2 1 1 0 010 2z"></path></svg>
-          Disponible sur Android
-        </a>
-        
-      </div>
-    </div>
-
-    <!-- hero phone : DASHBOARD (real screenshot) -->
-    <div onMouseMove="{{ tiltMove }}" onMouseLeave="{{ tiltLeave }}" style="position:relative;z-index:3;display:flex;justify-content:center;perspective:1600px">
-      <div style="position:absolute;width:118%;height:118%;left:-9%;top:-9%;background:radial-gradient(circle at 50% 42%,rgba(224,90,58,.5),rgba(61,26,0,.42) 38%,transparent 66%);filter:blur(40px);animation:glowPulse 5s ease-in-out infinite"></div>
-      <div style="animation:sparkFloat 7s ease-in-out infinite">
-        <div class="tilt-target" data-bx="3" data-by="-13" style="position:relative;transform:rotateY(-13deg) rotateX(3deg) rotateZ(1deg);transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.7,.2,1);will-change:transform">
-          <div style="position:relative;width:300px;border-radius:46px;padding:11px;background:linear-gradient(150deg,#34302e,#0b0a0a 55%);box-shadow:0 50px 110px -28px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.05),inset 0 0 0 1.5px rgba(255,255,255,.05)">
-            <img src="assets/screen-dashboard.png" alt="Écran d'accueil de Spark avec la flamme" style="display:block;width:100%;border-radius:36px">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ============ CONCEPT ============ -->
   
 
   <!-- ============ FLOW ============ -->
   <section style="position:relative;z-index:10;max-width:1300px;margin:0 auto;padding:clamp(20px,3vw,30px) clamp(20px,5vw,56px) clamp(70px,10vw,120px)">
-    <div style="text-align:center;margin-bottom:clamp(48px,7vw,80px)">
+    <section id="top" class="hero-grid" style="position:relative;z-index:10;scroll-margin-top:20px;max-width:1120px;margin:0 auto;padding:clamp(30px,6vw,72px) clamp(20px,5vw,40px) clamp(96px,12vw,160px);display:flex;flex-direction:column;align-items:center;text-align:center">
+
+    <!-- hero ambient glow -->
+    <div style="{{ heroGlowStyle }}"></div>
+    <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:560px;height:560px;max-width:92vw;background:radial-gradient(circle,rgba(224,90,58,.32),transparent 64%);filter:blur(56px);z-index:0;pointer-events:none;animation:glowPulse 7s ease-in-out infinite"></div>
+
+    <div style="position:relative;z-index:3;width:100%;display:flex;flex-direction:column;align-items:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:30px;flex-wrap:wrap">
+        <img src="assets/spark-logo-flame.png" alt="Spark" style="height:42px;width:auto;display:block;filter:drop-shadow(0 4px 18px rgba(224,90,58,.5))">
+        
+      </div>
+      <h1 style="font-size: clamp(46px,7.4vw,90px); line-height: 0.99; font-weight: 900; font-style: italic; letter-spacing: -.035em; text-wrap: balance; max-width: 1000px">
+        Le scroll infinis<br>s'arrête&nbsp;<span style="color: rgb(224, 90, 58); text-shadow: rgba(224, 90, 58, 0.55) 0px 0px 48px;">ici.</span>
+      </h1><p style="margin: 28px auto 0; max-width: 520px; font-size: clamp(15.5px,1.6vw,18px); line-height: 1.6; color: #A8A2A0; font-weight: 500"></p><span style="font-size: clamp(15.5px, 1.6vw, 18px)">Sois le premier informé du lancement de l'app.</span><span style="font-size: clamp(15.5px, 1.6vw, 18px);">Inscris-toi sur notre liste d'attente et invite tes amis pour avoir des cadeaux.</span><p></p>
+      <!-- compte à rebours -->
+      <div style="margin-top:40px;display:flex;gap:clamp(14px,2.4vw,30px);align-items:flex-start;justify-content:center;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdDays }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">JOURS</div>
+        </div>
+        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdHours }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">HEURES</div>
+        </div>
+        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdMin }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">MIN</div>
+        </div>
+        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;color:#E05A3A;text-shadow:0 0 32px rgba(224,90,58,.5)">{{ cdSec }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">SEC</div>
+        </div>
+      </div>
+
+      <!-- formulaire waitlist (Viral Loops) -->
+      <div style="margin:34px auto 0;width:100%;max-width:440px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:20px;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)">
+        <form-widget ucid="0LTlgYLoP5quOwRfdBSRkNd0hwE"></form-widget>
+      </div>
+
+      <!-- progression / parrainage (Viral Loops) — s'affiche en grand une fois le formulaire rempli -->
+      <div style="position:relative;margin:48px auto 0;width:100%;max-width:980px">
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100vw;height:160%;z-index:0;pointer-events:none;background:radial-gradient(70% 80% at 30% 50%,rgba(224,90,58,.30),rgba(61,26,0,.45) 40%,transparent 72%)"></div>
+        <h3 style="position:relative;z-index:1;font-size:clamp(22px,2.6vw,30px);font-weight:900;font-style:italic;letter-spacing:-.02em;margin-bottom:22px;text-align:center">Récompenses</h3>
+        <div style="position:relative;z-index:1;text-align:left">
+          <milestone-widget ucid="0LTlgYLoP5quOwRfdBSRkNd0hwE"></milestone-widget>
+        </div>
+      </div>
+    </div>
+  </section><div style="text-align:center;margin-bottom:clamp(48px,7vw,80px)">
       <div style="font-size:12px;font-weight:700;letter-spacing:.24em;color:#E05A3A;margin-bottom:18px"><span style="letter-spacing: 2.88px;">LE CONCEPT</span></div>
       <h2 style="font-size:clamp(28px,4.4vw,48px);font-weight:900;font-style:italic;letter-spacing:-.03em"></h2><h2 style="font-size:clamp(30px,5.2vw,62px);line-height:1.04;font-weight:900;font-style:italic;letter-spacing:-.03em;text-wrap:balance">
       Une flamme entre toi<br>et le <span style="color:#E05A3A">scroll infini.</span>
@@ -140,7 +154,7 @@
     <div style="position:absolute;inset:0;background:radial-gradient(110% 90% at 78% 50%,rgba(224,90,58,.32),rgba(61,26,0,.55) 38%,transparent 70%)"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0A0A0A,transparent 12%,transparent 88%,#0A0A0A)"></div>
     <div class="focus-grid" style="position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:clamp(70px,10vw,130px) clamp(24px,5vw,64px);display:grid;grid-template-columns:1fr .8fr;gap:clamp(40px,6vw,80px);align-items:center">
-      <div>
+      <div style="padding-left:clamp(12px,5vw,90px)">
         <div style="font-size:12px;font-weight:700;letter-spacing:.24em;color:#F2A07E;margin-bottom:24px">MODE FOCUS</div>
         <h2 style="font-size:clamp(34px,5.6vw,68px);line-height:1.0;font-weight:900;font-style:italic;letter-spacing:-.035em;text-wrap:balance">
           Quand le Focus<br>s'allume, le scroll<br><span style="color:#E05A3A">n'existe plus.</span>
@@ -160,14 +174,16 @@
     </div>
   </section>
 
-  <!-- ============ CTA STRIP ============ -->
-  <section style="position:relative;z-index:10;text-align:center;padding:clamp(70px,10vw,120px) clamp(24px,5vw,40px) clamp(50px,7vw,80px)">
-    <div style="position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:480px;height:240px;max-width:88vw;background:radial-gradient(ellipse,rgba(224,90,58,.3),transparent 70%);filter:blur(46px);z-index:-1"></div>
+  <!-- ============ CTA STRIP / CAMPAGNE ============ -->
+  <section id="campaign" style="position:relative;z-index:10;text-align:center;padding:clamp(70px,10vw,120px) clamp(24px,5vw,40px) clamp(50px,7vw,80px);scroll-margin-top:40px">
+    <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:480px;height:240px;max-width:88vw;background:radial-gradient(ellipse,rgba(224,90,58,.3),transparent 70%);filter:blur(46px);z-index:-1"></div>
     <img src="assets/flame-3d.png" alt="flamme Spark" style="width:74px;filter:drop-shadow(0 10px 26px rgba(224,90,58,.6));animation:sparkFlicker 3.5s ease-in-out infinite">
     <h2 style="margin-top:24px;font-size:clamp(30px,4.8vw,54px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1.02;text-wrap:balance">Reprends le contrôle de ton attention.</h2>
-    <a href="#" style="margin-top:34px;display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-size:16px;font-weight:800;color:#0A0A0A;background:linear-gradient(180deg,#fff,#ECE7E4);padding:17px 32px;border-radius:100px;box-shadow:0 14px 40px -8px rgba(224,90,58,.5)">
-      <svg width="18" height="19" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M17.6 9.48l1.84-3.18a.4.4 0 00-.7-.4l-1.87 3.23a11.4 11.4 0 00-8.74 0L6.27 5.9a.4.4 0 10-.7.4L7.4 9.48A10.8 10.8 0 002 18h20a10.8 10.8 0 00-5.4-8.52zM7.5 15.25a1 1 0 110-2 1 1 0 010 2zm9 0a1 1 0 110-2 1 1 0 010 2z"></path></svg>
-      Disponible sur Android
+    <p style="margin:18px auto 0;max-width:440px;font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#A8A2A0;font-weight:500">Les réseaux sociaux ont besoin de 5 secondes pour capter votre attention. Spark a juste besoin de votre email pour vous la rendre.</p>
+
+    <a href="#top" style="margin:34px auto 0;display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-size:16px;font-weight:800;color:#0A0A0A;background:linear-gradient(180deg,#fff,#ECE7E4);padding:17px 32px;border-radius:100px;box-shadow:0 14px 40px -8px rgba(224,90,58,.5)">
+      S'inscrire à la campagne
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
     </a>
   </section>
 
@@ -184,17 +200,30 @@
 
 <template id="__bundler_thumbnail">
 <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,#3D1A00,#0A0A0A 75%)">
-  <svg width="40%" viewBox="0 0 93.193 147.798" style="filter:drop-shadow(0 0 30px rgba(224,90,58,.7))"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD79A"/><stop offset="1" stop-color="#E05A3A"/></linearGradient></defs><path d="M 68.854 113.5 C 64.539 128.655 63.354 136 50.854 144.5 C 38.354 153 70.154 143.282 78.854 135.5 C 83.854 130 85.879 127.538 89.933 119.362 C 93.976 109.116 94.42 99.7 90.354 85.5 C 88.268 79.396 87.138 75.867 83.854 70.5 C 81.823 67.031 78.074 62.328 73.854 56 C 67.85 47.074 65.362 43.481 61.592 35.404 C 56.832 23.63 52.682 15.494 55.354 0 C 42.854 12 38.201 19.139 39.354 43 C 40.257 52.363 44.091 60.267 52.354 72 C 63.854 88 70.854 97.5 68.854 113.5 Z" fill="url(#tg)"></path><path d="M 18.354 50.5 C 21.723 36.883 25.614 32.221 31.854 26 C 27.354 48 28.833 54.359 36.354 70.5 C 41.19 80.879 46.741 85.274 51.854 94.5 C 53.448 97.995 55.354 106.5 55.854 109.5 C 55.854 116.5 54.523 121.691 51.354 127.5 C 48.354 133 43.354 135 39.354 136.5 C 29.854 138.5 25.166 136.833 16.854 133 C 7.854 126.5 5.791 125.36 1.354 111.5 C -1.646 98 0.854 84 3.854 73.5 C 9.354 88 13.854 90.5 20.854 91 C 24.974 86.077 23.632 86.104 19.354 73 C 17.617 61.224 17.42 57.536 18.354 50.5 Z" fill="url(#tg)"></path></svg>
+  <svg width="40%" viewBox="0 0 93.193 147.798" style="filter:drop-shadow(0 0 30px rgba(224,90,58,.7))"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD79A"></stop><stop offset="1" stop-color="#E05A3A"></stop></linearGradient></defs><path d="M 68.854 113.5 C 64.539 128.655 63.354 136 50.854 144.5 C 38.354 153 70.154 143.282 78.854 135.5 C 83.854 130 85.879 127.538 89.933 119.362 C 93.976 109.116 94.42 99.7 90.354 85.5 C 88.268 79.396 87.138 75.867 83.854 70.5 C 81.823 67.031 78.074 62.328 73.854 56 C 67.85 47.074 65.362 43.481 61.592 35.404 C 56.832 23.63 52.682 15.494 55.354 0 C 42.854 12 38.201 19.139 39.354 43 C 40.257 52.363 44.091 60.267 52.354 72 C 63.854 88 70.854 97.5 68.854 113.5 Z" fill="url(#tg)"></path><path d="M 18.354 50.5 C 21.723 36.883 25.614 32.221 31.854 26 C 27.354 48 28.833 54.359 36.354 70.5 C 41.19 80.879 46.741 85.274 51.854 94.5 C 53.448 97.995 55.354 106.5 55.854 109.5 C 55.854 116.5 54.523 121.691 51.354 127.5 C 48.354 133 43.354 135 39.354 136.5 C 29.854 138.5 25.166 136.833 16.854 133 C 7.854 126.5 5.791 125.36 1.354 111.5 C -1.646 98 0.854 84 3.854 73.5 C 9.354 88 13.854 90.5 20.854 91 C 24.974 86.077 23.632 86.104 19.354 73 C 17.617 61.224 17.42 57.536 18.354 50.5 Z" fill="url(#tg)"></path></svg>
 </div>
 </template></x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:2400},&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;glowIntensity&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:1.1,&quot;min&quot;:0,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:2400},&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;glowIntensity&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:1.1,&quot;min&quot;:0,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;},&quot;launchDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2026-07-23&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
+  state = { cdDays: '--', cdHours: '--', cdMin: '--', cdSec: '--' };
+  componentDidMount() { this.tick(); this._cd = setInterval(() => this.tick(), 1000); }
+  componentWillUnmount() { clearInterval(this._cd); }
+  tick() {
+    const target = new Date((this.props.launchDate || '2026-07-23') + 'T00:00:00').getTime();
+    let diff = Math.max(0, target - Date.now());
+    const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+    const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+    const m = Math.floor(diff / 60000); diff -= m * 60000;
+    const s = Math.floor(diff / 1000);
+    const p = (n) => String(n).padStart(2, '0');
+    this.setState({ cdDays: String(d), cdHours: p(h), cdMin: p(m), cdSec: p(s) });
+  }
   renderVals() {
     const grain = this.props.grain ?? true;
     const glow = this.props.glowIntensity ?? 1;
     return {
       grainStyle: "position:absolute;inset:0;z-index:1;pointer-events:none;opacity:" + (grain ? 0.05 : 0) + ";mix-blend-mode:overlay;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-      heroGlowStyle: "position:absolute;right:-6%;top:6%;width:680px;height:680px;max-width:80vw;background:radial-gradient(circle,rgba(224,90,58," + (0.3 * glow) + "),rgba(61,26,0," + (0.34 * glow) + ") 42%,transparent 68%);filter:blur(60px);z-index:0;pointer-events:none;animation:glowPulse 6s ease-in-out infinite",
+      heroGlowStyle: "position:absolute;left:50%;top:32%;transform:translate(-50%,-50%);width:1520px;height:820px;max-width:140vw;background:radial-gradient(ellipse 60% 54% at 50% 45%,rgba(224,90,58," + (0.42 * glow) + "),rgba(224,90,58," + (0.16 * glow) + ") 30%,rgba(61,26,0," + (0.3 * glow) + ") 52%,transparent 72%);filter:blur(72px);z-index:0;pointer-events:none;animation:glowPulse 6s ease-in-out infinite",
       tiltMove: (e) => {
         const wrap = e.currentTarget;
         const t = wrap.querySelector(".tilt-target");
@@ -214,7 +243,11 @@ class Component extends DCLogic {
         const bx = parseFloat(t.dataset.bx || "0");
         t.style.transition = "transform .6s cubic-bezier(.2,.7,.2,1)";
         t.style.transform = "rotateY(" + by + "deg) rotateX(" + bx + "deg)";
-      }
+      },
+      cdDays: this.state.cdDays,
+      cdHours: this.state.cdHours,
+      cdMin: this.state.cdMin,
+      cdSec: this.state.cdSec
     };
   }
 }
