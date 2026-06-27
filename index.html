@@ -21,6 +21,7 @@
   @keyframes sparkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
   @keyframes sparkFlicker{0%,100%{opacity:.92;transform:scale(1)}45%{opacity:1;transform:scale(1.02)}70%{opacity:.88;transform:scale(.995)}}
   @keyframes glowPulse{0%,100%{opacity:.55}50%{opacity:.85}}
+  @keyframes scrollCue{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(6px);opacity:1}}
   @media (max-width:820px){
     .hero-grid,.focus-grid{grid-template-columns:1fr !important;text-align:center}
     .hero-grid > div:first-of-type{display:flex;flex-direction:column;align-items:center}
@@ -42,75 +43,54 @@
   <div style="{{ grainStyle }}"></div>
   <div style="position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 220px 60px rgba(0,0,0,.9)"></div>
 
-  <!-- ============ TOP BAR ============ -->
-  
+  <!-- ============ LE PROBLÈME (intro) ============ -->
+  <section style="position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(80px,12vh,140px) clamp(22px,5vw,40px) clamp(56px,9vh,104px)">
 
-  <!-- ============ HERO ============ -->
-  
-
-  <!-- ============ CONCEPT ============ -->
-  
-
-  <!-- ============ FLOW ============ -->
-  <section style="position:relative;z-index:10;max-width:1300px;margin:0 auto;padding:clamp(20px,3vw,30px) clamp(20px,5vw,56px) clamp(70px,10vw,120px)">
-    <section id="top" class="hero-grid" style="position:relative;z-index:10;scroll-margin-top:20px;max-width:1120px;margin:0 auto;padding:clamp(30px,6vw,72px) clamp(20px,5vw,40px) clamp(96px,12vw,160px);display:flex;flex-direction:column;align-items:center;text-align:center">
-
-    <!-- hero ambient glow -->
     <div style="{{ heroGlowStyle }}"></div>
-    <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:560px;height:560px;max-width:92vw;background:radial-gradient(circle,rgba(224,90,58,.32),transparent 64%);filter:blur(56px);z-index:0;pointer-events:none;animation:glowPulse 7s ease-in-out infinite"></div>
+    <div style="position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:560px;height:560px;max-width:92vw;background:radial-gradient(circle,rgba(224,90,58,.26),transparent 64%);filter:blur(60px);z-index:0;pointer-events:none;animation:glowPulse 7s ease-in-out infinite"></div>
 
-    <div style="position:relative;z-index:3;width:100%;display:flex;flex-direction:column;align-items:center">
-      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:30px;flex-wrap:wrap">
-        <img src="assets/spark-logo-flame.png" alt="Spark" style="height:42px;width:auto;display:block;filter:drop-shadow(0 4px 18px rgba(224,90,58,.5))">
-        
-      </div>
-      <h1 style="font-size: clamp(46px,7.4vw,90px); line-height: 0.99; font-weight: 900; font-style: italic; letter-spacing: -.035em; text-wrap: balance; max-width: 1000px">
-        Le scroll infinis<br>s'arrête&nbsp;<span style="color: rgb(224, 90, 58); text-shadow: rgba(224, 90, 58, 0.55) 0px 0px 48px;">ici.</span>
-      </h1><p style="margin: 28px auto 0; max-width: 520px; font-size: clamp(15.5px,1.6vw,18px); line-height: 1.6; color: #A8A2A0; font-weight: 500"></p><h3 style="position: relative; z-index: 1; font-size: clamp(15px,2.6vw,30px); font-weight: 900; font-style: italic; letter-spacing: -.02em; margin-bottom: 8px; text-align: center">Les réseaux captent ton attention en 5 secondes.<div>Spark te la rend.</div></h3><p style="margin:14px auto 0;max-width:520px;font-size:clamp(15.5px,1.6vw,18px);line-height:1.6;color:#A8A2A0;font-weight:600;text-align:center">Inscris-toi, invite tes amis et gagne des cadeaux avant le lancement de l'app le 22 juillet 2026</p>
-      <!-- compte à rebours -->
-      <div style="margin-top:40px;display:flex;gap:clamp(14px,2.4vw,30px);align-items:flex-start;justify-content:center;flex-wrap:wrap">
-        <div style="text-align:center">
-          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdDays }}</div>
-          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">JOURS</div>
-        </div>
-        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
-        <div style="text-align:center">
-          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdHours }}</div>
-          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">HEURES</div>
-        </div>
-        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
-        <div style="text-align:center">
-          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdMin }}</div>
-          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">MIN</div>
-        </div>
-        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
-        <div style="text-align:center">
-          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;color:#E05A3A;text-shadow:0 0 32px rgba(224,90,58,.5)">{{ cdSec }}</div>
-          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">SEC</div>
-        </div>
-      </div>
+    <div style="position:relative;z-index:3;width:100%;max-width:800px;display:flex;flex-direction:column;align-items:center">
+      <img src="assets/spark-logo-flame.png" alt="Spark" style="height:40px;width:auto;display:block;filter:drop-shadow(0 4px 18px rgba(224,90,58,.5));margin-bottom:30px">
       
 
-      <!-- formulaire waitlist (Viral Loops) -->
-      <div style="margin:34px auto 0;width:100%;max-width:440px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:20px;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)">
-        <form-widget ucid="0LTlgYLoP5quOwRfdBSRkNd0hwE"></form-widget>
+      <h1 style="font-size:clamp(30px,4.6vw,54px);line-height:1.07;font-weight:900;font-style:italic;letter-spacing:-.03em;text-wrap:balance;max-width:760px">
+        J'en avais marre de me retrouver en train de scroller sur Insta<div>&nbsp;<span style="color: rgb(224, 90, 58); text-shadow: rgba(224, 90, 58, 0.45) 0px 0px 48px;">sans l'avoir vraiment choisi.</span>
+      </div></h1>
+
+      <p style="margin:32px auto 0;max-width:580px;font-size:clamp(15.5px,1.7vw,18.5px);line-height:1.72;color:#C2A89C;font-weight:500;text-wrap:pretty">
+        J'ai testé plein d'apps pour retrouver le contrôle de mon temps. Elles finissaient toutes désinstallées... Parcequ'<span style="font-size: clamp(15.5px, 1.7vw, 18.5px); text-wrap-mode: initial;">elles te bloquent, au mauvais moment, se contournent en deux secondes et ne s'adaptent pas à la psychologie humaine.</span></p>
+      <p style="margin:22px auto 0;font-size:clamp(17px,1.9vw,21px);line-height:1.4;color:#fff;font-weight:600">
+        Alors j'ai créé <span style="font-weight:900;font-style:italic">Spark.</span>
+      </p>
+
+      <!-- triade -->
+      <div style="margin-top:clamp(40px,6vw,62px);display:flex;flex-direction:column;gap:9px">
+        <div style="font-size:clamp(22px,3vw,34px);font-weight:900;font-style:italic;letter-spacing:-.02em;line-height:1.12">Tu choisis pourquoi tu ouvres.</div>
+        <div style="font-size:clamp(22px,3vw,34px);font-weight:900;font-style:italic;letter-spacing:-.02em;line-height:1.12">Tu choisis combien de temps.</div>
+        <div style="font-size:clamp(22px,3vw,34px);font-weight:900;font-style:italic;letter-spacing:-.02em;line-height:1.12;color:#E05A3A;text-shadow:0 0 36px rgba(224,90,58,.45)">Tu reprends le contrôle.</div>
       </div>
 
-      <!-- progression / parrainage (Viral Loops) — s'affiche en grand une fois le formulaire rempli -->
-      <div style="position:relative;margin:48px auto 0;width:100%;max-width:980px">
-        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100vw;height:160%;z-index:0;pointer-events:none;background:radial-gradient(70% 80% at 30% 50%,rgba(224,90,58,.30),rgba(61,26,0,.45) 40%,transparent 72%)"></div>
-        <h3 style="position:relative;z-index:1;font-size:clamp(22px,2.6vw,30px);font-weight:900;font-style:italic;letter-spacing:-.02em;margin-bottom:8px;text-align:center">Récompenses</h3>
-        <p style="position:relative;z-index:1;margin:0 auto 22px;text-align:center;font-size:13px;font-weight:600;color:#7d7672">Ces récompenses ne seront plus disponibles après le lancement.</p>
-        <div style="position:relative;z-index:1;text-align:left">
-          <milestone-widget ucid="0LTlgYLoP5quOwRfdBSRkNd0hwE"></milestone-widget>
-        </div>
-      </div>
+      <!-- indicateur de scroll -->
+      <a href="#concept" style="margin-top:clamp(48px,7vw,76px);display:inline-flex;flex-direction:column;align-items:center;gap:10px;color:#6B6663;text-decoration:none">
+        
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="animation:scrollCue 2.2s ease-in-out infinite"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+      </a>
     </div>
-  </section><div style="text-align:center;margin-bottom:clamp(48px,7vw,80px)">
-      <div style="font-size:12px;font-weight:700;letter-spacing:.24em;color:#E05A3A;margin-bottom:18px"><span style="letter-spacing: 2.88px;">LE CONCEPT</span></div>
-      <h2 style="font-size:clamp(28px,4.4vw,48px);font-weight:900;font-style:italic;letter-spacing:-.03em"></h2><h2 style="font-size:clamp(30px,5.2vw,62px);line-height:1.04;font-weight:900;font-style:italic;letter-spacing:-.03em;text-wrap:balance">
-      Une flamme entre toi<br>et le <span style="color:#E05A3A">scroll infini.</span>
-    </h2>
+  </section>
+
+  <!-- ============ SCROLL-DRIVEN VIDEO ============ -->
+  <section id="scrollVideo" style="position:relative;z-index:10;height:300vh;background:#000000">
+    <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000000">
+      <video id="handSparkVideo" src="assets/hand-spark.mp4" autoplay="" muted="" playsinline="" preload="auto" style="width:100%;max-width:600px;height:auto;display:block"></video>
+      <div id="sparkGlowTransition" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 62%,rgba(224,90,58,.85),rgba(61,26,0,.55) 40%,transparent 72%)"></div>
+    </div>
+  </section>
+
+  <!-- ============ LE CONCEPT ============ -->
+  <section id="concept" style="position:relative;z-index:10;max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,110px) clamp(20px,5vw,56px) clamp(70px,10vw,120px);scroll-margin-top:20px">
+    <div style="text-align:center;margin-bottom:clamp(48px,7vw,80px)">
+      
+      
     </div>
 
     <div style="display:flex;gap:clamp(28px,4vw,60px);justify-content:center;align-items:center;flex-wrap:wrap;perspective:2000px">
@@ -176,17 +156,63 @@
     </div>
   </section>
 
-  <!-- ============ CTA STRIP / CAMPAGNE ============ -->
-  <section id="campaign" style="position:relative;z-index:10;text-align:center;padding:clamp(70px,10vw,120px) clamp(24px,5vw,40px) clamp(50px,7vw,80px);scroll-margin-top:40px">
-    <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:480px;height:240px;max-width:88vw;background:radial-gradient(ellipse,rgba(224,90,58,.3),transparent 70%);filter:blur(46px);z-index:-1"></div>
-    <img src="assets/flame-3d.png" alt="flamme Spark" style="width:74px;filter:drop-shadow(0 10px 26px rgba(224,90,58,.6));animation:sparkFlicker 3.5s ease-in-out infinite">
-    <h2 style="margin-top:24px;font-size:clamp(30px,4.8vw,54px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1.02;text-wrap:balance">Reprends le contrôle de ton attention.</h2>
-    
+  <!-- ============ CTA STRIP / TRANSITION ============ -->
+  
 
-    <a href="#top" style="margin:34px auto 0;display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-size:16px;font-weight:800;color:#0A0A0A;background:linear-gradient(180deg,#fff,#ECE7E4);padding:17px 32px;border-radius:100px;box-shadow:0 14px 40px -8px rgba(224,90,58,.5)">
-      S'inscrire à la campagne
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
-    </a>
+  <!-- ============ HERO FINAL / INSCRIPTION ============ -->
+  <section id="top" class="hero-grid" style="position:relative;z-index:10;scroll-margin-top:20px;max-width:1120px;margin:0 auto;padding:clamp(10px,3vw,30px) clamp(20px,5vw,40px) clamp(96px,12vw,160px);display:flex;flex-direction:column;align-items:center;text-align:center">
+
+    <!-- hero ambient glow -->
+    <div style="{{ heroGlowStyle }}"></div>
+    <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:560px;height:560px;max-width:92vw;background:radial-gradient(circle,rgba(224,90,58,.32),transparent 64%);filter:blur(56px);z-index:0;pointer-events:none;animation:glowPulse 7s ease-in-out infinite"></div>
+
+    <div style="position:relative;z-index:3;width:100%;display:flex;flex-direction:column;align-items:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:30px;flex-wrap:wrap">
+        <img src="assets/spark-logo-flame.png" alt="Spark" style="height:42px;width:auto;display:block;filter:drop-shadow(0 4px 18px rgba(224,90,58,.5))">
+        
+      </div>
+      <h1 style="font-size: clamp(46px,7.4vw,90px); line-height: 0.99; font-weight: 900; font-style: italic; letter-spacing: -.035em; text-wrap: balance; max-width: 1000px">
+        Le scroll infinis<br>s'arrête&nbsp;<span style="color: rgb(224, 90, 58); text-shadow: rgba(224, 90, 58, 0.55) 0px 0px 48px;">ici.</span>
+      </h1><p style="margin: 28px auto 0; max-width: 520px; font-size: clamp(15.5px,1.6vw,18px); line-height: 1.6; color: #A8A2A0; font-weight: 500"></p><p style="margin:14px auto 0;max-width:520px;font-size:clamp(15.5px,1.6vw,18px);line-height:1.6;color:#A8A2A0;font-weight:600;text-align:center">Laisse ton email pour reçevoir une alarme le jour du lancement le 22 juillet 2026 !&nbsp;</p>
+      <!-- compte à rebours -->
+      
+      
+
+      <!-- formulaire waitlist (Viral Loops) -->
+      <div style="margin-top:40px;display:flex;gap:clamp(14px,2.4vw,30px);align-items:flex-start;justify-content:center;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdDays }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">JOURS</div>
+        </div>
+        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdHours }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">HEURES</div>
+        </div>
+        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums">{{ cdMin }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">MIN</div>
+        </div>
+        <div style="font-size:clamp(26px,4vw,44px);font-weight:300;color:#3a3633;line-height:1;padding-top:4px">:</div>
+        <div style="text-align:center">
+          <div style="font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;color:#E05A3A;text-shadow:0 0 32px rgba(224,90,58,.5)">{{ cdSec }}</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.2em;color:#7d7672">SEC</div>
+        </div>
+      </div><div style="margin:34px auto 0;width:100%;max-width:440px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:20px;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)">
+        <form-widget ucid="0LTlgYLoP5quOwRfdBSRkNd0hwE"></form-widget>
+      </div>
+
+      <!-- progression / parrainage (Viral Loops) — s'affiche en grand une fois le formulaire rempli -->
+      <div style="position:relative;margin:48px auto 0;width:100%;max-width:980px">
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100vw;height:160%;z-index:0;pointer-events:none;background:radial-gradient(70% 80% at 30% 50%,rgba(224,90,58,.30),rgba(61,26,0,.45) 40%,transparent 72%)"></div>
+        
+        
+        <div style="position:relative;z-index:1;text-align:left">
+          
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ============ FOOTER ============ -->
@@ -204,12 +230,48 @@
 <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,#3D1A00,#0A0A0A 75%)">
   <svg width="40%" viewBox="0 0 93.193 147.798" style="filter:drop-shadow(0 0 30px rgba(224,90,58,.7))"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD79A"></stop><stop offset="1" stop-color="#E05A3A"></stop></linearGradient></defs><path d="M 68.854 113.5 C 64.539 128.655 63.354 136 50.854 144.5 C 38.354 153 70.154 143.282 78.854 135.5 C 83.854 130 85.879 127.538 89.933 119.362 C 93.976 109.116 94.42 99.7 90.354 85.5 C 88.268 79.396 87.138 75.867 83.854 70.5 C 81.823 67.031 78.074 62.328 73.854 56 C 67.85 47.074 65.362 43.481 61.592 35.404 C 56.832 23.63 52.682 15.494 55.354 0 C 42.854 12 38.201 19.139 39.354 43 C 40.257 52.363 44.091 60.267 52.354 72 C 63.854 88 70.854 97.5 68.854 113.5 Z" fill="url(#tg)"></path><path d="M 18.354 50.5 C 21.723 36.883 25.614 32.221 31.854 26 C 27.354 48 28.833 54.359 36.354 70.5 C 41.19 80.879 46.741 85.274 51.854 94.5 C 53.448 97.995 55.354 106.5 55.854 109.5 C 55.854 116.5 54.523 121.691 51.354 127.5 C 48.354 133 43.354 135 39.354 136.5 C 29.854 138.5 25.166 136.833 16.854 133 C 7.854 126.5 5.791 125.36 1.354 111.5 C -1.646 98 0.854 84 3.854 73.5 C 9.354 88 13.854 90.5 20.854 91 C 24.974 86.077 23.632 86.104 19.354 73 C 17.617 61.224 17.42 57.536 18.354 50.5 Z" fill="url(#tg)"></path></svg>
 </div>
-</template></x-dc>
+</template>
+</x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:2400},&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;glowIntensity&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:1.1,&quot;min&quot;:0,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;},&quot;launchDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2026-07-23&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { cdDays: '--', cdHours: '--', cdMin: '--', cdSec: '--' };
-  componentDidMount() { this.tick(); this._cd = setInterval(() => this.tick(), 1000); }
-  componentWillUnmount() { clearInterval(this._cd); }
+  componentDidMount() {
+    this.tick();
+    this._cd = setInterval(() => this.tick(), 1000);
+    this.initScrollVideo();
+  }
+  componentWillUnmount() {
+    clearInterval(this._cd);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+  initScrollVideo() {
+    const sec = document.getElementById('scrollVideo');
+    const video = document.getElementById('handSparkVideo');
+    const glow = document.getElementById('sparkGlowTransition');
+    if (!sec || !video) return;
+    const keepPaused = () => { if (!video.paused) video.pause(); };
+    video.addEventListener('loadedmetadata', keepPaused);
+    video.addEventListener('canplay', keepPaused);
+    video.addEventListener('play', keepPaused);
+    video.pause();
+    let raf = null;
+    const update = () => {
+      raf = null;
+      const total = sec.offsetHeight - window.innerHeight;
+      const p = total > 0 ? Math.max(0, Math.min(1, -sec.getBoundingClientRect().top / total)) : 0;
+      const dur = video.duration;
+      if (dur && isFinite(dur)) {
+        const t = p * dur;
+        if (Math.abs(video.currentTime - t) > 0.01) {
+          try { video.currentTime = t; } catch (e) {}
+        }
+      }
+      if (glow) glow.style.opacity = Math.max(0, (p - 0.8) / 0.2);
+    };
+    this._onScroll = () => { if (raf == null) raf = requestAnimationFrame(update); };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    update();
+  }
   tick() {
     const target = new Date((this.props.launchDate || '2026-07-23') + 'T00:00:00').getTime();
     let diff = Math.max(0, target - Date.now());
