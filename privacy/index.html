@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark · Confidentialité</title>
+<meta name="description" content="Politique de confidentialité de Spark, l'app de focus et de bien-être numérique.">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0D0D0D;
+    --surface: rgba(255, 255, 255, 0.06);
+    --stroke: rgba(255, 255, 255, 0.12);
+    --text: #FFFFFF;
+    --text-soft: rgba(255, 255, 255, 0.72);
+    --text-faint: rgba(255, 255, 255, 0.5);
+    --yellow: #FFECAC;
+    --orange: #EB4A00;
+    --red: #920000;
+    --flame: linear-gradient(90deg, #FFECAC 0%, #EB4A00 55%, #920000 100%);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--black);
+    color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* Lueur de Spark, en haut à gauche comme sur Home. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -30vh auto auto -30vw;
+    width: 90vw;
+    height: 90vh;
+    background: radial-gradient(circle, rgba(235, 74, 0, 0.35) 0%, rgba(146, 0, 0, 0.22) 38%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  main { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 32px 16px 80px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 48px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+  .brand svg { width: 34px; height: 50px; filter: drop-shadow(0 0 12px rgba(235, 74, 0, 0.6)); }
+  .brand span { font-weight: 800; font-size: 26px; letter-spacing: -0.04em; transform: skewX(-10deg); display: inline-block; }
+  .lang { display: flex; background: var(--surface); border: 1px solid var(--stroke); border-radius: 999px; padding: 4px; }
+  .lang button {
+    border: 0; background: transparent; color: var(--text-soft); font: 700 14px/1 "Inter", sans-serif;
+    padding: 10px 16px; border-radius: 999px; cursor: pointer; min-height: 44px;
+  }
+  .lang button[aria-pressed="true"] { background: var(--yellow); color: var(--black); }
+  h1 {
+    font-size: clamp(40px, 9vw, 64px); line-height: 1.02; font-weight: 800; letter-spacing: -0.045em;
+    margin: 0 0 16px; transform: skewX(-10deg); transform-origin: left bottom;
+  }
+  h1 em { font-style: normal; background: var(--flame); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .updated { color: var(--text-faint); font-weight: 500; margin: 0 0 32px; }
+  .summary {
+    background: var(--surface); border: 1px solid var(--stroke); border-radius: 24px; padding: 24px;
+    margin-bottom: 48px; position: relative; overflow: hidden;
+  }
+  .summary::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--flame);
+  }
+  .summary p { margin: 0 0 12px; font-weight: 500; }
+  .summary ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .summary li { padding-left: 30px; position: relative; color: var(--text-soft); }
+  .summary li::before { content: "🔥"; position: absolute; left: 0; top: 0; }
+  h2 {
+    font-size: 26px; font-weight: 800; letter-spacing: -0.035em; margin: 48px 0 12px;
+    transform: skewX(-10deg); transform-origin: left bottom;
+  }
+  h3 { font-size: 18px; font-weight: 700; margin: 24px 0 6px; color: var(--yellow); }
+  p, li { color: var(--text-soft); }
+  strong { color: var(--text); font-weight: 700; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  a { color: var(--yellow); }
+  .card { background: var(--surface); border: 1px solid var(--stroke); border-radius: 20px; padding: 4px 20px 16px; margin: 16px 0; }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--stroke); color: var(--text-faint); font-size: 14px; }
+  [lang="en"] article[data-lang="fr"], [lang="fr"] article[data-lang="en"] { display: none; }
+  @media (max-width: 480px) { body { font-size: 16px; } .summary { padding: 20px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="brand" href="../" aria-label="Spark">
+      <svg viewBox="204.581 0 63.5621 94.6813" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M250.505 69.3923C250.567 79.072 247.837 83.6069 239.776 90.6655C245.909 89.6556 249.807 88.2093 255.335 82.867C258.153 79.7297 259.647 77.6731 262.033 73.0466C264.412 67.2489 264.282 62.1573 261.889 54.1226C260.661 50.669 259.894 48.9371 257.961 45.9005C256.766 43.9374 255.142 41.52 252.658 37.9394C249.124 32.8885 247.571 30.1111 245.352 25.5409C242.55 18.8787 241.867 13.426 243.439 4.65924L243.378 4.72989C236.875 12.1863 233.211 16.3886 233.888 29.8477C234.419 35.1454 234.933 38.2034 239.776 45.2479C247.147 54.9674 249.858 60.287 250.505 69.3923Z" fill="url(#g1)"/>
+        <path d="M220.295 34.0514C222.278 26.3467 224.081 23.7375 227.754 20.2173C223.831 33.5744 225.682 39.0136 230.109 48.1465C232.955 54.0195 235.955 57 237.6 60.8624C239.245 64.7248 240.583 68.8288 238.614 75.2927C237.111 78.3997 235.913 79.7764 233.118 81.5572C227.986 83.8823 225.187 83.726 220.295 81.5572C214.919 78.7003 212.785 77.0876 210.22 68.7672C207.655 60.4467 208.991 56.8875 209.828 49.3211C214.036 60.5861 219.282 64.5397 221.211 60.806C223.141 57.0723 221.102 51.3451 220.423 46.8797C219.743 42.4144 219.625 38.0763 220.295 34.0514Z" fill="url(#g1)"/>
+        <defs>
+          <radialGradient id="g1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(236.156 62.9249) rotate(-69.5998) scale(53.2525 34.6201)">
+            <stop stop-color="#FFECAC"/><stop offset="0.615385" stop-color="#EB4A00"/><stop offset="1" stop-color="#7C0606"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <span>Spark</span>
+    </a>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <!-- ===================== FRANÇAIS ===================== -->
+  <article data-lang="fr">
+    <h1>Ta vie privée, <em>on la protège.</em></h1>
+    <p class="updated">Politique de confidentialité · Mise à jour le 30 septembre 2026</p>
+
+    <section class="summary">
+      <p>En bref :</p>
+      <ul>
+        <li>Pas de publicité, pas de pistage, pas de revente de données. Jamais.</li>
+        <li>Tes données de Temps d'écran restent sur ton iPhone. Spark n'y a pas accès.</li>
+        <li>Tes données sont stockées dans l'iCloud d'Apple, pas sur un serveur Spark.</li>
+        <li>Tu peux supprimer ton compte et toutes tes données depuis l'app, à tout moment.</li>
+      </ul>
+    </section>
+
+    <h2>Qui sommes-nous ?</h2>
+    <p>Spark est une app de focus et de bien-être numérique éditée par <strong>Cyril Guerrin</strong>, responsable du traitement de tes données. Pour toute question : <a href="mailto:cyrilguerrin@gmail.com">cyrilguerrin@gmail.com</a>.</p>
+
+    <h2>Les données que tu nous confies</h2>
+    <div class="card">
+      <h3>Ton compte</h3>
+      <p>Tu te connectes avec <strong>Se connecter avec Apple</strong>. Nous recevons un identifiant anonyme fourni par Apple, et, si tu choisis de les partager, ton prénom et ton adresse e-mail (éventuellement masquée par Apple). Ces informations restent sur ton iPhone et dans ton iCloud privé.</p>
+    </div>
+    <div class="card">
+      <h3>Ton profil public</h3>
+      <p>Ton <strong>prénom</strong>, ton <strong>@pseudo</strong> et ta <strong>photo de profil</strong> sont visibles des autres utilisateurs de Spark, pour qu'ils puissent te trouver et te suivre.</p>
+    </div>
+    <div class="card">
+      <h3>Tes sessions et tes objectifs</h3>
+      <p>Les titres, notes, durées et <strong>photos de victoire</strong> de tes sessions, ainsi que tes objectifs et ta progression. Ils sont enregistrés dans ton iCloud privé. Selon tes réglages, ils sont aussi visibles :</p>
+      <ul>
+        <li>de tout le monde si ton compte est <strong>public</strong> (réglage par défaut) ;</li>
+        <li>uniquement des abonnés que tu acceptes si ton compte est <strong>privé</strong> ;</li>
+        <li>des participants des objectifs que tu partages ou rejoins, dont l'objectif communautaire.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Tes interactions</h3>
+      <p>Tes abonnements, les flammes que tu envoies, tes demandes pour rejoindre un objectif, et les signalements ou blocages que tu effectues (utilisés uniquement pour la modération).</p>
+    </div>
+    <div class="card">
+      <h3>Tes réponses à l'onboarding</h3>
+      <p>Ton âge et tes réponses lors de la découverte de l'app servent à personnaliser ton expérience. Elles restent sur ton iPhone et dans ton iCloud privé.</p>
+    </div>
+
+    <h2>Ce qui ne quitte jamais ton iPhone</h2>
+    <p>Spark utilise <strong>Temps d'écran</strong> (Family Controls) d'Apple pour bloquer tes apps. La liste des apps que tu choisis et ton utilisation de ton téléphone sont gérées par iOS : Apple ne les transmet jamais à Spark, et elles ne sont envoyées nulle part. L'appareil photo ne sert qu'à prendre les photos que tu décides de publier.</p>
+
+    <h2>Où sont stockées tes données ?</h2>
+    <p>Spark n'a pas de serveur. Tout passe par <strong>iCloud (CloudKit)</strong>, l'infrastructure sécurisée d'Apple :</p>
+    <ul>
+      <li><strong>ta base privée iCloud</strong>, accessible à toi seul : ton compte, ton journal, tes objectifs ;</li>
+      <li><strong>les partages iCloud</strong> : ce que tu partages avec tes abonnés ou les participants d'un objectif ;</li>
+      <li><strong>la base publique de Spark</strong> : ton profil public, et tes contenus si ton compte est public.</li>
+    </ul>
+    <p>Un compte iCloud est nécessaire pour les fonctions sociales. Pour en savoir plus sur la façon dont Apple protège iCloud : <a href="https://www.apple.com/fr/legal/privacy/" target="_blank" rel="noopener">apple.com/fr/legal/privacy</a>.</p>
+
+    <h2>Les autorisations</h2>
+    <ul>
+      <li><strong>Temps d'écran</strong> : pour bloquer et débloquer tes apps.</li>
+      <li><strong>Appareil photo</strong> : pour immortaliser tes victoires.</li>
+      <li><strong>Notifications</strong> : nouveaux abonnés, flammes, objectifs et sessions de tes amis. Tu choisis chaque type dans les réglages de Spark.</li>
+    </ul>
+    <p>Elles sont facultatives, et tu peux les retirer à tout moment dans les Réglages de ton iPhone.</p>
+
+    <h2>Ce que nous ne faisons pas</h2>
+    <ul>
+      <li>Aucune publicité, aucun pistage entre apps ou sites.</li>
+      <li>Aucun outil d'analyse ou de mesure d'audience tiers.</li>
+      <li>Aucune vente ni location de tes données.</li>
+    </ul>
+
+    <h2>Combien de temps ?</h2>
+    <p>Tes données sont conservées tant que ton compte existe. Quand tu supprimes une session ou un objectif, ses copies partagées sont supprimées avec lui.</p>
+
+    <h2>Supprimer ton compte</h2>
+    <p>Dans Spark : <strong>Profil › Réglages › Supprimer mon compte</strong>. Nous effaçons alors ton profil, ton @pseudo, tes sessions, tes objectifs (y compris pour leurs participants), tes flammes, tes abonnements, ta participation aux objectifs de tes amis et tes données iCloud liées à Spark. Ce que d'autres personnes ont écrit à ton sujet n'est plus affiché nulle part.</p>
+
+    <h2>Tes droits</h2>
+    <p>Conformément au RGPD, tu peux accéder à tes données, les corriger, les supprimer, en obtenir une copie ou t'opposer à leur traitement. La plupart de ces actions se font directement dans l'app. Pour le reste, écris-nous à <a href="mailto:cyrilguerrin@gmail.com">cyrilguerrin@gmail.com</a> : nous répondons sous 30 jours. Tu peux aussi saisir la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.</p>
+
+    <h2>Âge minimum</h2>
+    <p>Spark n'est pas destiné aux personnes de moins de 13 ans.</p>
+
+    <h2>Modifications</h2>
+    <p>Si cette politique change, nous mettrons à jour cette page et sa date. En cas de changement important, nous te préviendrons dans l'app.</p>
+  </article>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <article data-lang="en">
+    <h1>Your privacy, <em>protected.</em></h1>
+    <p class="updated">Privacy Policy · Updated September 30, 2026</p>
+
+    <section class="summary">
+      <p>In short:</p>
+      <ul>
+        <li>No ads, no tracking, no selling of data. Ever.</li>
+        <li>Your Screen Time data stays on your iPhone. Spark can't access it.</li>
+        <li>Your data is stored in Apple's iCloud, not on a Spark server.</li>
+        <li>You can delete your account and all your data from the app, at any time.</li>
+      </ul>
+    </section>
+
+    <h2>Who we are</h2>
+    <p>Spark is a focus and digital wellbeing app published by <strong>Cyril Guerrin</strong>, who is responsible for processing your data. For any question: <a href="mailto:cyrilguerrin@gmail.com">cyrilguerrin@gmail.com</a>.</p>
+
+    <h2>The data you share with us</h2>
+    <div class="card">
+      <h3>Your account</h3>
+      <p>You sign in with <strong>Sign in with Apple</strong>. We receive an anonymous identifier provided by Apple and, if you choose to share them, your first name and email address (which Apple may hide). This information stays on your iPhone and in your private iCloud.</p>
+    </div>
+    <div class="card">
+      <h3>Your public profile</h3>
+      <p>Your <strong>first name</strong>, <strong>@username</strong> and <strong>profile photo</strong> are visible to other Spark users so they can find and follow you.</p>
+    </div>
+    <div class="card">
+      <h3>Your sessions and goals</h3>
+      <p>The titles, notes, durations and <strong>win photos</strong> of your sessions, as well as your goals and progress. They're saved in your private iCloud. Depending on your settings, they're also visible to:</p>
+      <ul>
+        <li>everyone if your account is <strong>public</strong> (default setting);</li>
+        <li>only the followers you approve if your account is <strong>private</strong>;</li>
+        <li>participants of the goals you share or join, including the community goal.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Your interactions</h3>
+      <p>The accounts you follow, the flames you send, your requests to join goals, and the reports or blocks you make (used for moderation only).</p>
+    </div>
+    <div class="card">
+      <h3>Your onboarding answers</h3>
+      <p>Your age and the answers you give while discovering the app are used to personalize your experience. They stay on your iPhone and in your private iCloud.</p>
+    </div>
+
+    <h2>What never leaves your iPhone</h2>
+    <p>Spark uses Apple's <strong>Screen Time</strong> (Family Controls) to block your apps. The apps you select and how you use your phone are handled by iOS: Apple never shares them with Spark, and they're never sent anywhere. The camera is only used to take the photos you choose to post.</p>
+
+    <h2>Where your data is stored</h2>
+    <p>Spark has no server. Everything goes through <strong>iCloud (CloudKit)</strong>, Apple's secure infrastructure:</p>
+    <ul>
+      <li><strong>your private iCloud database</strong>, accessible only to you: your account, journal and goals;</li>
+      <li><strong>iCloud shares</strong>: what you share with your followers or goal participants;</li>
+      <li><strong>Spark's public database</strong>: your public profile, and your content if your account is public.</li>
+    </ul>
+    <p>An iCloud account is required for social features. To learn how Apple protects iCloud: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><strong>Screen Time</strong>: to block and unblock your apps.</li>
+      <li><strong>Camera</strong>: to capture your wins.</li>
+      <li><strong>Notifications</strong>: new followers, flames, goals and your friends' sessions. You choose each type in Spark's settings.</li>
+    </ul>
+    <p>They're optional, and you can revoke them at any time in your iPhone Settings.</p>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>No ads, no tracking across apps or websites.</li>
+      <li>No third-party analytics or measurement tools.</li>
+      <li>No selling or renting of your data.</li>
+    </ul>
+
+    <h2>How long we keep it</h2>
+    <p>Your data is kept as long as your account exists. When you delete a session or a goal, its shared copies are deleted with it.</p>
+
+    <h2>Deleting your account</h2>
+    <p>In Spark: <strong>Profile › Settings › Delete my account</strong>. We then erase your profile, @username, sessions, goals (including for their participants), flames, follows, your participation in your friends' goals and your Spark-related iCloud data. Anything other people wrote about you is no longer shown anywhere.</p>
+
+    <h2>Your rights</h2>
+    <p>Under the GDPR, you can access, correct or delete your data, get a copy of it, or object to its processing. Most of these actions can be done directly in the app. For anything else, email us at <a href="mailto:cyrilguerrin@gmail.com">cyrilguerrin@gmail.com</a>: we reply within 30 days. You can also contact the French data protection authority, the <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.</p>
+
+    <h2>Minimum age</h2>
+    <p>Spark is not intended for people under 13.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, we'll update this page and its date. For any significant change, we'll let you know in the app.</p>
+  </article>
+
+  <footer>© 2026 Spark · Cyril Guerrin</footer>
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var saved = null;
+    try { saved = localStorage.getItem("spark-lang"); } catch (e) {}
+    var lang = saved || ((navigator.language || "fr").toLowerCase().indexOf("fr") === 0 ? "fr" : "en");
+    function apply(value) {
+      root.setAttribute("lang", value);
+      document.title = value === "fr" ? "Spark · Confidentialité" : "Spark · Privacy";
+      document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+        button.setAttribute("aria-pressed", String(button.getAttribute("data-set-lang") === value));
+      });
+      try { localStorage.setItem("spark-lang", value); } catch (e) {}
+    }
+    document.querySelectorAll("[data-set-lang]").forEach(function (button) {
+      button.addEventListener("click", function () { apply(button.getAttribute("data-set-lang")); });
+    });
+    // Lien direct vers une langue : …/privacy/?lang=en
+    var param = new URLSearchParams(location.search).get("lang");
+    apply(param === "en" || param === "fr" ? param : lang);
+  })();
+</script>
+</body>
+</html>
