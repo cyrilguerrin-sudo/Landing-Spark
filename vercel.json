@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "privacy-policy-spark-ios.vercel.app" }],
+      "destination": "/privacy/",
+      "permanent": false
+    }
+  ]
+}
